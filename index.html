@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bina.az — Dərs versiyası</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>body { font-family: 'Segoe UI', system-ui, sans-serif; }</style>
+</head>
+
+<body class="bg-gray-100 min-h-screen">
+
+  <div class="bg-gray-50 border-b border-gray-200 text-sm text-gray-600">
+    <div class="max-w-7xl mx-auto px-4 py-2.5 flex items-center justify-between">
+      <div class="flex gap-5 font-medium">
+        <a href="#" class="hover:text-emerald-600">Tap.az</a>
+        <a href="#" class="hover:text-emerald-600">Turbo.az</a>
+        <a href="#" class="hover:text-emerald-600">Boss.az</a>
+      </div>
+      <div class="flex items-center gap-5">
+        <span>Dəstək: <strong class="text-gray-800">(012) 310-01-01</strong></span>
+        <a href="#" class="hover:text-emerald-600">Yardım</a>
+        <a href="#" class="hover:text-emerald-600">RU</a>
+        <a href="#" class="hover:text-emerald-600">💬 Mesajlar</a>
+        <a href="bina-sebet.html" class="hover:text-emerald-600">♡ Seçilmişlər <span id="sebetSay">0</span></a>
+        <a href="#" class="hover:text-emerald-600">⊙ Giriş</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="bg-emerald-600 text-white">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-8">
+        <h1 class="text-2xl font-extrabold tracking-tight">BINA.AZ</h1>
+        <nav class="hidden lg:flex items-center gap-6 text-[15px] font-medium">
+          <a href="#" class="hover:text-emerald-100">Bütün elanlar</a>
+          <a href="#" class="hover:text-emerald-100">Yeni tikili</a>
+          <a href="#" class="hover:text-emerald-100">Kirayə</a>
+          <a href="#" class="hover:text-emerald-100">Günlük kirayə</a>
+          <a href="#" class="hover:text-emerald-100">Obyektlər</a>
+          <a href="#" class="hover:text-emerald-100">Torpaq</a>
+        </nav>
+      </div>
+      <button class="bg-white text-emerald-600 hover:bg-emerald-50 px-5 py-2.5 rounded-lg font-semibold flex items-center gap-2">
+        <span class="text-lg">⊕</span> Yeni elan
+      </button>
+    </div>
+  </header>
+
+  <section class="bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-6">
+
+      <div class="flex flex-wrap gap-3 mb-3">
+        <select id="tip" class="flex-1 min-w-[180px] bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-600">
+          <option value="">Əmlakın növü</option>
+        </select>
+        <select id="otaq" class="flex-1 min-w-[180px] bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-600">
+          <option value="">Otaq sayı</option>
+        </select>
+        <select id="rayon" class="flex-1 min-w-[180px] bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-600">
+          <option value="">Yerləşmə</option>
+        </select>
+      </div>
+
+      <div class="flex flex-wrap gap-3 mb-4">
+        <input type="number" id="minPrice" placeholder="Qiymət, min."
+          class="w-32 bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-400">
+        <input type="number" id="maxPrice" placeholder="maks."
+          class="w-28 bg-white border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-emerald-400">
+        <select class="bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-700">
+          <option>AZN</option>
+          <option>USD</option>
+        </select>
+        <select id="sened" class="flex-1 min-w-[160px] bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-600">
+          <option value="">Sənəd növü</option>
+          <option value="Kupça">Kupça</option>
+          <option value="Müqavilə">Müqavilə</option>
+        </select>
+        <select id="temir" class="flex-1 min-w-[160px] bg-white border border-gray-300 rounded-lg px-4 py-3 text-gray-600">
+          <option value="">Təmir</option>
+          <option value="Təmirli">Təmirli</option>
+          <option value="Təmirsiz">Təmirsiz</option>
+          <option value="Orta təmir">Orta təmir</option>
+        </select>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <div class="flex-1 min-w-[240px]">
+          <input type="text" id="search" placeholder="Axtarış edin..."
+            class="w-full pl-4 py-2.5 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-emerald-400">
+        </div>
+        <button id="resetBtn" class="text-gray-500 hover:text-gray-700">Sıfırla</button>
+        <button id="filterBtn" class="bg-emerald-600 hover:bg-emerald-700 text-white px-8 py-2.5 rounded-lg font-semibold">
+          Elanları göstər
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-4 mt-6">
+    <h2 class="text-xl font-bold text-gray-800 mb-4">SEÇİLMİŞ ELANLAR</h2>
+    <div id="container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pb-10"></div>
+  </section>
+
+  <script src="index.js"></script>
+</body>
+</html>
